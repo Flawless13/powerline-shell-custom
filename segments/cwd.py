@@ -15,12 +15,18 @@ def get_short_path(cwd):
 
 def add_cwd_segment():
     cwd = powerline.cwd or os.getenv('PWD')
-    names = get_short_path(cwd.decode('utf-8'))
-
+    names = os.path.join(*(get_short_path(cwd.decode('utf-8'))))
+    bg = Color.CMD_PASSED_BG
+    fg = Color.CMD_PASSED_FG
+    if powerline.args.prev_error != 0:
+        fg = Color.CMD_FAILED_FG
+        bg = Color.CMD_FAILED_BG
+    powerline.append(' %s ' % names, fg, bg)
+    
+'''
     max_depth = powerline.args.cwd_max_depth
     if len(names) > max_depth:
         names = names[:2] + [u'\u2026'] + names[2 - max_depth:]
-
     if not powerline.args.cwd_only:
         for n in names[:-1]:
             if n == '~' and Color.HOME_SPECIAL_DISPLAY:
@@ -33,5 +39,5 @@ def add_cwd_segment():
         powerline.append(' %s ' % names[-1], Color.HOME_FG, Color.HOME_BG)
     else:
         powerline.append(' %s ' % names[-1], Color.CWD_FG, Color.PATH_BG)
-
+'''
 add_cwd_segment()

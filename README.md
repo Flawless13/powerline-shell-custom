@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 A Powerline style prompt for your shell
 =======================================
 
@@ -130,3 +131,7 @@ A script for testing color combinations is provided at `themes/colortest.py`.
 Note that the colors you see may vary depending on your terminal. When designing
 a theme, please test your theme on multiple terminals, especially with default
 settings.
+=======
+powerline-shell-custom
+======================
+>>>>>>> 7b5593467af108df526287e8aed5f5404ec7f05e
